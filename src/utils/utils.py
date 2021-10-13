@@ -1,4 +1,5 @@
 import math
+import random
 
 def counter(x):
     results = {}
@@ -22,7 +23,7 @@ def vector_sum(vs):
         result = vector_add(result, vector)
     return result
 
-def scalar_mltpy(c,v):
+def scalar_mltply(c,v):
     return [c * i for i in v]
 
 def dot(v,w):
@@ -78,9 +79,11 @@ def correlation(x,y):
         return 0
 
 
-
-
-
+def shuffle(data):
+    indexes = [i for i, _ in enumerate(data)]
+    random.shuffle(indexes)
+    for i in indexes:
+        yield data[i]
 
 
 
