@@ -15,9 +15,14 @@ daily_minutes_good = [68.77,51.25,52.08,38.36,44.54,57.13,51.4,41.42,31.22,34.76
 
 
 def l_reg(x,y):
+    print('fitting data...')
     theta = [random.random(), random.random()]
     return stochastic_gradient_descent_min(l_reg_squared_error, l_reg_squared_error_gradient, x, y, theta, alpha_0=0.01)
 
+def est_l_reg_beta(sample):
+    x_sample, y_sample = zip(*sample)
+    return l_reg(x_sample, y_sample)
+    
 
 def m_reg(x,y):
     initial_beta = [random.random() for _ in x[0]]

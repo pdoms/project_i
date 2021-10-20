@@ -131,6 +131,10 @@ class scale_down():
     
     def scale_down(self, x):
         return [i/self.scale for i in x]
+    
+    def scale_up(self, x):
+        return [i*self.scale for i in x]
+    
 
 
 

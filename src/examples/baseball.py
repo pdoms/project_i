@@ -13,7 +13,7 @@ import random
 
 
 sys.path.append("..")
-from tools.analysis import correlation_matrix, describe
+from tools.analysis import anova_lin, correlation_matrix, describe, variable_summary_lin
 from tools.regression import lin_least_squares_fit, l_reg
 from tools.utils import normalize, scale_down
 from tools.methods import error_l_reg, l_reg_squared_error, l_reg_squared_error_gradient, predict_l_reg
@@ -39,21 +39,24 @@ cum_avg_l1 = data['CumulativeAverageLAG1'].to_list()
 
 ###metrics
 d = {'BatAvg': bat_avg, 'BatAvgL1': bat_avg_l1, 'CumAvgL1': cum_avg_l1}
-describe(d)
-correlation_matrix(d)
+#describe(d)
+#correlation_matrix(d)
 scaler = scale_down(bat_avg)
 bat_avg_scaled = scaler.scaled_down
 cum_avg_l1_scaled = scaler.scale_down(cum_avg_l1)
-print(l_reg(cum_avg_l1_scaled, bat_avg_scaled))
+alpha, beta = l_reg(cum_avg_l1_scaled, bat_avg_scaled)
 
+variable_summary_lin(alpha, beta, bat_avg_scaled, cum_avg_l1_scaled)
+
+#anova_lin(cum_avg_l1_scaled, bat_avg_scaled, alpha, beta)
 
 
 
 ###visualization
-fig, ax = plt.subplots(1,2, figsize=(10,7))
-ax[0].scatter(bat_avg, bat_avg_l1)
-ax[1].scatter(bat_avg, cum_avg_l1)
-print(plt.show())
+#fig, ax = plt.subplots(1,2, figsize=(10,7))
+#ax[0].scatter(bat_avg, bat_avg_l1)
+#ax[1].scatter(bat_avg, cum_avg_l1)
+#print(plt.show())
 
 
 

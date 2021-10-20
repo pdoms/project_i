@@ -1,4 +1,4 @@
-from .utils import dot
+from .utils import dot, de_mean
 
 def predict_m_reg(xi, beta):
     return dot(xi, beta)
@@ -26,3 +26,10 @@ def l_reg_squared_error_gradient(xi, yi, theta):
     alpha, beta = theta
     return [-2 * error_l_reg(alpha, beta, xi, yi), 
              -2 * error_l_reg(alpha, beta, xi, yi) * xi]
+
+def l_reg_sum_of_squared_errors(alpha, beta, x,y):
+    return sum(error_l_reg(alpha, beta, xi, yi) **2 
+        for xi, yi in zip(x,y))
+        
+def l_reg_tss(y):
+    return sum(v **2 for v in de_mean(y))

@@ -8,9 +8,7 @@ def stochastic_gradient_descent_min(method, method_gradient, x,y, theta_0, alpha
     alpha = alpha_0
     min_theta, min_err_val = None, float('inf')
     while iterations <= max_iter:
-        print(iterations)
         err_val = sum(method(xi, yi, theta) for xi, yi in data)
-        print(err_val, min_err_val)
         if err_val < min_err_val:
             #err val smaller than previous --> improvement
             min_theta, min_err_val = theta, err_val
