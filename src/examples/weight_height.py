@@ -29,7 +29,7 @@ regress.y_stats(report=True, write='results/weight_height.txt')
 
 #fit data - use OLS
 regress.fit(method='ordinary')
-regress.analyse(se_samples=20, report=True, write='results/weight_height.txt')
+regress.analyse(se_samples=20, report=True, write='results/weight_height.txt', add_note=True)
 regress.evaluate()
 
 #visualize results
