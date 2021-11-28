@@ -10,11 +10,12 @@ shoesize = [8,9,12,16,12,14,8,8,10,11,13,13,7, 8, 12, 16, 14]
 
 
 reg = LinReg(weight, height, ['height', 'weight'])
-
-reg.add_variable(shoesize, 'shoesize')
+reg.fit()
+reg.analyse()
+""" reg.add_variable(shoesize, 'shoesize')
 print(reg.x)
 print(reg.fit())
-results = reg.analyse(se_samples=10)
+results = reg.analyse(se_samples=10) """
 
 
 
