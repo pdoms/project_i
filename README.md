@@ -1,1 +1,2 @@
-# project_i
+# project_i (project one)
+### Project to get accquainted with data-science, some code is from scratch other won't be. I do this outside of full-time job as a javascript developer and I have a kid. And in addition to that, I am also interested at the moment in things like socket programming, search algorithms and learning C++. So that will explain the infrequent commit history.
